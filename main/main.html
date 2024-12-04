@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information Form</title>
+    <link rel="stylesheet" href="styls.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .form-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Patient Information Form</h1>
+        <form id="patientForm" action="/submit_patient_form" method="post">
+            <!-- Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP Code:</label>
+                    <input type="text" id="zip" name="zip" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </fieldset>
+
+            <!-- Insurance Information -->
+            <fieldset>
+                <legend>Insurance Information</legend>
+                <div class="form-group">
+                    <label for="insuranceProvider">Insurance Provider:</label>
+                    <input type="text" id="insuranceProvider" name="insuranceProvider">
+                </div>
+                <div class="form-group">
+                    <label for="policyNumber">Policy Number:</label>
+                    <input type="text" id="policyNumber" name="policyNumber">
+                </div>
+                <div class="form-group">
+                    <label for="groupNumber">Group Number:</label>
+                    <input type="text" id="groupNumber" name="groupNumber">
+                </div>
+            </fieldset>
+
+            <!-- Emergency Contact Information -->
+            <fieldset>
+                <legend>Emergency Contact Information</legend>
+                <div class="form-group">
+                    <label for="emergencyName">Name:</label>
+                    <input type="text" id="emergencyName" name="emergencyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyRelationship">Relationship:</label>
+                    <input type="text" id="emergencyRelationship" name="emergencyRelationship" required>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyPhone">Phone Number:</label>
+                    <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
+                </div>
+            </fieldset>
+
+            <!-- Medical History -->
+            <fieldset>
+                <legend>Medical History</legend>
+                <div class="form-group">
+                    <label for="primaryCarePhysician">Primary Care Physician:</label>
+                    <input type="text" id="primaryCarePhysician" name="primaryCarePhysician">
+                </div>
+                <div class="form-group">
+                    <label for="currentMedications">Current Medications:</label>
+                    <textarea id="currentMedications" name="currentMedications" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies:</label>
+                    <textarea id="allergies" name="allergies" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pastConditions">Past Medical Conditions:</label>
+                    <textarea id="pastConditions" name="pastConditions" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pastSurgeries">Past Surgeries:</label>
+                    <textarea id="pastSurgeries" name="pastSurgeries" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="familyHistory">Family Medical History:</label>
+                    <textarea id="familyHistory" name="familyHistory" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Reason for Visit -->
+            <fieldset>
+                <legend>Reason for Visit</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint:</label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="symptoms">Symptoms:</label>
+                    <textarea id="symptoms" name="symptoms" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Lifestyle Information -->
+            <fieldset>
+                <legend>Lifestyle Information</legend>
+                <div class="form-group">
+                    <label>Smoking Status:</label>
+                    <input type="radio" id="smoker" name="smokingStatus" value="smoker">
+                    <label for="smoker">Smoker</label>
+                    <input type="radio" id="nonSmoker" name="smokingStatus" value="non-smoker">
+                    <label for="nonSmoker">Non-Smoker</label>
+                    <input type="radio" id="formerSmoker" name="smokingStatus" value="former-smoker">
+                    <label for="formerSmoker">Former Smoker</label>
+                </div>
+                <div class="form-group">
+                    <label for="alcoholConsumption">Alcohol Consumption:</label>
+                    <input type="text" id="alcoholConsumption" name="alcoholConsumption">
+                </div>
+                <div class="form-group">
+                    <label for="exerciseRoutine">Exercise Routine:</label>
+                    <textarea id="exerciseRoutine" name="exerciseRoutine" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dietaryHabits">Dietary Habits:</label>
+                    <textarea id="dietaryHabits" name="dietaryHabits" rows="2"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Additional Information -->
+            <fieldset>
+                <legend>Additional Information</legend>
+                <div class="form-group">
+                    <label for="preferredLanguage">Preferred Language:</label>
+                    <input type="text" id="preferredLanguage" name="preferredLanguage">
+                </div>
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests:</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

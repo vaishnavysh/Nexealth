@@ -1,0 +1,18 @@
+.rr{
+    display: flex;
+    align-items: center;
+    color: azure;
+    background-color: aliceblue;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
